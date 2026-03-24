@@ -1,0 +1,49 @@
+// Framework list
+// Character Progression (Leveling Up, Gaining EXP, Stat Increase, Skill Progression formula, Damage Formula)
+// Combat System (Combat Loop, Attack Calculation with Weapons, Enemy AI, Using items during combat)
+// Inventory System (Equip/Unequip, Item usage logic, Weapon/armor slot, Inventory check)
+// Quest System (Accepting quest, completing quest, giving rewards, quest conditions)
+// Enemy Generation (Random Encounter, Enemy scaling, Enemy Loot System)
+// UI/Presentation Layer (Menus for character sheet, Inventory Menu, Combat Text UI)
+// Save/Load System
+
+12/12
+Progress:
+- Add combat loop
+- Fix function that uses int to use void
+- Initialize RNG by declaring srand() at main
+- Change Enemy struct to EncounterEnemy struct
+- Added class for combat outcome
+
+To do:
+- Consistent naming (Character or Player?)
+- Improve enemy ai for combat
+- Fix isDead redundancy in combat loop
+
+3/4/26
+Progress:
+- Create CharacterCreation function
+- Add Stat assignment
+
+To do:
+- Consistent naming (Character or Player?)
+- Improve enemy ai for combat
+- Fix isDead redundancy in combat loop
+= Finish a minimal playable loop:
+    - Player
+    - Enemy
+    - Combat
+    - Inventory
+    - Level up
+    - One quest
+
+3/16/26
+Progress:
+- Complete CharacterCreation
+- Working on checkInventory()
+
+3/18/26
+Progress:
+- Change how inventory works (using vector of a variant rather vector of a struct)
+- Removed itemTypeToString functions
+- Fixed bugs/redundant code
