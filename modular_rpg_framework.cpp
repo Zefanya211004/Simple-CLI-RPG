@@ -6,6 +6,8 @@
 #include <cstdlib>
 #include <ctime>
 #include <variant>
+#include <unistd.h>
+#include <thread>
 
 enum class itemType
 {
@@ -152,6 +154,10 @@ int getInput(int min, int max)
     }
 }
 
+void delayText(int x) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(x)); //1 second is 1000 ms
+}
+
 int getStat(const Stat &stat, statType type)
 {
     return stat.values[static_cast<int>(type)];
@@ -245,10 +251,13 @@ Character CharacterCreation()
 
     std::cout << "Stat assignment done!" << std::endl;
 
+    delayText(1000);
+
     for (int i = 0; i < static_cast<int>(statType::COUNT); i++) // loop to print stat string after done
     {
         auto st = static_cast<statType>(i);
         std::cout << statTypeToString(st) << ": " << player.stat.values[i] << std::endl;
+        delayText(500);
     }
 
     // Skill assignment
@@ -256,16 +265,19 @@ Character CharacterCreation()
     for (int i = 0; i < static_cast<int>(skillType::COUNT); i++)
     {
         auto st = static_cast<skillType>(i);
-        std::cout << skillTypeToString(st) << ": " << std::endl;
+        std::cout << skillTypeToString(st) << ": ";
         std::cin >> player.skill.values[i];
     }
 
     std::cout << "Skill Assignment Done!" << std::endl;
 
+    delayText(1000);
+
     for (int i = 0; i < static_cast<int>(skillType::COUNT); i++)
     {
         auto st = static_cast<skillType>(i);
         std::cout << skillTypeToString(st) << ": " << player.skill.values[i] << std::endl;
+        delayText(500);
     }
 
     return player;
