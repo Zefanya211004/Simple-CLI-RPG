@@ -47,3 +47,12 @@ Progress:
 - Change how inventory works (using vector of a variant rather vector of a struct)
 - Removed itemTypeToString functions
 - Fixed bugs/redundant code
+
+8/25/26
+Progress:
+- Seperate into header and source files
+- Adjusting header files (Character.hpp & Utils.hpp)
+    -- Modified Character.hpp to remove parameter that needed
+        Character &character as it's redundant
+    -- Change Utility from struct into namespace
+- Created 2 source files (Character.cpp & Utils.cpp)

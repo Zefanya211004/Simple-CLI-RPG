@@ -9,127 +9,6 @@
 #include <unistd.h>
 #include <thread>
 
-enum class itemType
-{
-    CONSUMABLE,
-    WEAPON,
-    MISC
-};
-
-enum class weaponType
-{
-    GUNS,
-    ENERGY,
-    MELEE,
-    UNARMED
-};
-
-enum class CombatOutcome
-{
-    PLAYER_WIN,
-    PLAYER_LOSE,
-    PLAYER_ESCAPE,
-    UNKNOWN
-};
-
-enum class PlayerTurnOutcome
-{
-    ESCAPE,
-    NORMAL
-};
-
-struct Consumable
-{
-    std::string name;
-    int value;
-};
-
-struct Weapon
-{
-    std::string name;
-    weaponType type;
-    int damage;
-    int accuracy;
-};
-
-struct Misc
-{
-    std::string name;
-    std::string description;
-};
-
-using Item = std::variant<Weapon, Consumable, Misc>;
-
-enum class statType
-{
-    Strength,
-    Perception,
-    Endurance,
-    Charisma,
-    Intelligence,
-    Agility,
-    Luck,
-    COUNT
-};
-
-struct Stat
-{
-    std::array<int, static_cast<int>(statType::COUNT)> values;
-};
-
-enum class skillType
-{
-    Guns,
-    Energy,
-    Unarmed,
-    Melee,
-    Throwing,
-    Medic,
-    Sneak,
-    Lockpick,
-    Traps,
-    Survival,
-    Science,
-    Repair,
-    Speech,
-    Barter,
-    Gambling,
-    COUNT
-};
-
-struct Skill
-{
-    std::array<int, static_cast<int>(skillType::COUNT)> values;
-};
-
-// skillType::COUNT because we need the total count of skill and we want to convert it to int for the array
-
-struct Character
-{
-    int health = 100;
-    int level = 1;
-    int exp = 0;
-    int armor = 10;
-    Stat stat;
-    Skill skill;
-    std::string name;
-    std::vector<Item> inventory;
-    Weapon equipped_weapon;
-};
-
-struct EncounterEnemy
-{
-    Character enemy;
-};
-
-struct Quest
-{
-    std::string quest_name;
-    std::vector<Item> reward;
-    int exp_reward;
-    std::vector<EncounterEnemy> enemy_list;
-};
-
 int getInput(int min, int max)
 {
     int input;
@@ -487,6 +366,8 @@ int checkInventory(Character &character)
         {
             std::cout << "*Implement Misc Item usage later" << std::endl;
         }
+
+        // character.inventory[index].erase();
     }
     break;
     case 2:
